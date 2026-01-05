@@ -10,7 +10,7 @@ When debugging Next.js applications, server-side HTTP requests are **invisible**
 
 Route all server-side HTTP traffic through a debugging proxy using a preload script that patches Node.js **before** your app starts.
 
-![Demo](public/proxy-demo.webm)
+https://github.com/user-attachments/assets/e49d4d23-0a63-437d-8b65-e8f917556400
 
 ## Quick Start
 
