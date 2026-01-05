@@ -1,0 +1,28 @@
+{
+  "name": "nextjs-server-http-debug-demo",
+  "version": "1.0.0",
+  "description": "Demo: Debugging server-side HTTP calls in Next.js with a proxy",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "dev:proxy": "NODE_ENV=development NODE_OPTIONS=\"--require ./scripts/proxy-preload.cjs\" HTTP_PROXY=http://127.0.0.1:8080 HTTPS_PROXY=http://127.0.0.1:8080 NODE_TLS_REJECT_UNAUTHORIZED=0 next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "^15.1.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "ky": "^1.7.0",
+    "axios": "^1.7.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "undici": "^7.0.0",
+    "global-agent": "^3.0.0"
+  }
+}
