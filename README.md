@@ -61,6 +61,41 @@ Open http://localhost:3000 and visit any demo page. Watch the requests appear in
 
 Node.js has **two separate HTTP stacks**:
 
+```mermaid
+flowchart TB
+  subgraph Browser
+    BD["Browser DevTools - Network Tab"]
+  end
+
+  subgraph NextServer["Next.js Server (Node.js Runtime)"]
+    SC["Server Components / Route Handlers / Server Actions"]
+
+    F["fetch()"]
+    KY["ky"]
+    AX["axios"]
+    GOT["got / superagent"]
+
+    U["undici"]
+    H["http / https"]
+  end
+
+  subgraph Proxy["Dev-only Proxy Setup"]
+    UP["undici ProxyAgent"]
+    GA["global-agent"]
+    MP["mitmproxy"]
+  end
+
+  %% Server flows
+  SC --> F --> U
+  SC --> KY --> F
+  SC --> AX --> H
+  SC --> GOT --> H
+
+  %% Proxy interception
+  U --> UP --> MP
+  H --> GA --> MP
+```
+
 | Stack | Used By | Respects HTTP_PROXY? | Patch Method |
 |-------|---------|---------------------|--------------|
 | **undici** | Native `fetch()`, Ky | No | `setGlobalDispatcher()` |
