@@ -1,5 +1,7 @@
 # Next.js Server-Side HTTP Debug Demo
 
+**Blog Post:** [There Is No Network Tab for Server-Side Next.js](https://dev.to/muhammedogz/there-is-no-network-tab-for-server-side-nextjs-2hpg)
+
 > Learn how to intercept and debug server-side HTTP requests in Next.js using a proxy.
 
 ## The Problem
